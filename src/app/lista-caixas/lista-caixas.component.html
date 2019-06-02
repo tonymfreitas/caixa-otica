@@ -1,0 +1,39 @@
+<div class="row mt-3">
+  <div class="col-12 jumbotron">
+    <h2 class="text-center">Caixas</h2>
+  </div>
+</div>
+<div class="row mt-3" *ngIf="caixas.length > 0">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Data</th>
+            <th scope="col">Descrição</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let caixa of caixas">
+            <td>{{caixa.idCaixa}}</td>
+            <td>{{caixa.dataCaixa | date: 'dd/MM/yyyy'}}</td>
+            <td>{{caixa.descricao}}</td>
+            <td>
+              <i class="fa fa-2x text-success fa-edit" (click)="editarCaixa(caixa)"></i>
+            </td>
+            <td>
+              <i class="fa fa-2x text-primary fa-print" (click)="gerarRelatorio(caixa)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="alert alert-info" *ngIf="caixas.length == 0">
+  <span class="fa fa-2x fa-info-circle"></span>
+  <label class="ml-3">NENHUM CAIXA CADASTRADO!</label>
+</div>

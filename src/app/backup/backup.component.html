@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="jumbotrom">
+    <h2>Configuração</h2>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label>Caminho do backup</label>
+      <input type="text" class="form-control" [(ngModel)]="configuracao.caminhoBackup">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label>Caminho de instalação do banco de dados</label>
+      <input type="text" class="form-control" [(ngModel)]="configuracao.caminhoBancoDados">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label>Email emissor</label>
+      <input type="text" class="form-control" [(ngModel)]="configuracao.emailEmissor" placeholder="">
+    </div>
+    <div class="col-12">
+      <label>Senha email emissor</label>
+      <input type="text" class="form-control" [(ngModel)]="configuracao.senhaEmailEmissor" placeholder="">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label>Email destino</label>
+      <input type="text" class="form-control" [(ngModel)]="configuracao.emailDestino" placeholder=" ">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary btn-space mt-2" (click)="salvarConfiguracaoBackup()">Salvar configuração
+        backup</button>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12">
+      <h2>Backup</h2>
+      <hr>
+    </div>
+  </div>
+  <label class="text-info">Ao realizar o backup o arquivo será enviado para o email configurado.</label>
+
+  <div class="row mb-5">
+    <div class="col-12">
+      <button class="btn btn-lg btn-outline-primary btn-space mt-2 fo" (click)="realizarBackup()">Realizar
+        backup</button>
+    </div>
+  </div>
+</div>

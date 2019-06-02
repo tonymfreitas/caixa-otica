@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="content-wrapper">
+    <div class="row" *ngIf="loggedIn()">
+      <div class="col-12">
+        <a (click)="logout()" class="btn btn-success float-right mr-3 mt-2 text-white">SAIR</a>
+        <a (click)="goBack()" class="float-left ml-3 mt-2 text-white">
+          <i class="fa fa-arrow-circle-left text-danger fa-3x"></i>
+        </a>
+      </div>
+    </div>
+    <div class="container">
+      <ng4-loading-spinner [timeout]="30000"></ng4-loading-spinner>
+      <router-outlet></router-outlet>
+      <app-snackbar></app-snackbar>
+    </div>
+  </div>
+</div>

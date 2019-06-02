@@ -1,0 +1,106 @@
+<div class="row mt-3">
+    <div class="col-12">
+      <div class="jumbotron text-center">
+        <h2>Caixa {{caixa.descricao}}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-row align-items-center">
+        <div class="col-12">
+          <input type="text" placeholder="Informe aqui uma descrição para o caixa" class="form-control"
+            [(ngModel)]="descricao">
+        </div>
+      </div>
+      <hr>
+      <form [formGroup]="editarCaixaForm">
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label>Data</label>
+            <input type="date" class="form-control" formControlName="data">
+          </div>
+          <div class="col-3">
+            <label>Histórico</label>
+            <input type="text" class="form-control" formControlName="historico">
+          </div>
+          <div class="col-auto">
+            <label>Tipo</label>
+            <select class="form-control" formControlName="tipo">
+              <option *ngFor="let tp of tipos">{{tp}}</option>
+            </select>
+          </div>
+          <div class="col-auto">
+            <label>Documento</label>
+            <input type="text" class="form-control" formControlName="documento">
+          </div>
+          <div class="col-1">
+            <label>Entrada</label>
+            <input type="number" class="form-control" formControlName="entrada">
+          </div>
+          <div class="col-1">
+            <label>Saída</label>
+            <input type="number" class="form-control" formControlName="saida">
+          </div>
+        </div>
+        <div class="col-12 mt-3">
+          <button class="btn btn-primary text-white float-right" (click)="adicionarLancamentoCaixa()">Adicionar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row mt-3" *ngIf="isCaixaNotEmpty()">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Data</th>
+              <th scope="col">Histórico</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Documento</th>
+              <th scope="col">Entrada</th>
+              <th scope="col">Saída</th>
+              <th scope="col">Saldo</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lanc of getLancamentosCaixa()">
+              <th scope="row">{{getLancamentosCaixa().indexOf(lanc) + 1}}</th>
+              <td>{{lanc.dataLancamento | date: 'dd/MM/yyyy'}}</td>
+              <td>{{lanc.historico}}</td>
+              <td>{{lanc.tipo}}</td>
+              <td>{{lanc.documento}}</td>
+              <td>{{lanc.entrada}}</td>
+              <td>{{lanc.saida}}</td>
+              <td>{{getSaldo(lanc)}}</td>
+              <td (click)="excluirLancamentoCaixa(lanc)">
+                <i class="fa fa-2x text-danger fa-times-circle"></i>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="font-weight-bold text-success">Total:</td>
+              <td>{{getSaldoTotal()}}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-5" *ngIf="isCaixaNotEmpty()">
+    <div class="col-12">
+      <div class="col-12 mt-3">
+        <button class="btn btn-primary text-white float-right" (click)="salvarCaixa()">Salvar</button>
+      </div>
+    </div>
+  </div>

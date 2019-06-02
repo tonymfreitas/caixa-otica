@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="jumbotrom">
+    <h2>Editar usuário</h2>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label>Usuário</label>
+      <input type="text" class="form-control" [(ngModel)]="usuario.usuario">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label>Senha</label>
+      <input type="password" class="form-control" [(ngModel)]="usuario.senha">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <label>Senha de confirmação</label>
+      <input type="password" class="form-control" [(ngModel)]="senhaConfirmacao">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary btn-space mt-2" (click)="salvarUsuario()">Salvar</button>
+    </div>
+  </div>
+</div>

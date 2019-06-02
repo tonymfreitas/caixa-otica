@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h2 class="text-center">Caixa Ótica</h2>
+  <div class="row mt-5">
+    <div class="col-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h3>Login</h3>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Usuário" [(ngModel)]="usuario">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="senha">
+          </div>
+          <button class="btn btn-primary" (click)="logar()">Entrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
